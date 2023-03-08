@@ -275,7 +275,7 @@ a,
                   <div class="form-block w-form">
                     <form id="eventFour1" name="email-form" data-name="Email Form" action="/demo" method="post"
                       class="form-2 contact_form">
-                      <div class="div-block-39">
+                      <!-- <div class="div-block-39">
                         <div class="div-block-44"><label for="name" class="from-label">FIRST NAME</label>
                           <input type="text" class="text-field-2 w-input firstName" maxlength="256" name="name"
                             data-name="Name" placeholder="John" id="name">
@@ -284,12 +284,16 @@ a,
                           <input type="text" class="text-field-3 w-input lastName" maxlength="256" name="name-2"
                             data-name="Name 2" placeholder="Doe" id="name-2">
                         </div>
+                      </div> -->
+                      <div class="div-block-40"><label for="email" class="from-label">NAME</label>
+                        <input type="text" class="input-filed w-input name" maxlength="256" name="name"
+                          data-name="Email" placeholder="Name" id="email" required>
                       </div>
-                      <div class="div-block-40"><label for="email" class="from-label">COMPANY NAME</label>
-                        <input type="text" class="input-filed w-input companyName" maxlength="256" name="email"
-                          data-name="Email" placeholder="John Inc." id="email" required>
+                      <div class="div-block-40"><label for="email" class="from-label">EMAIL</label>
+                        <input type="email" class="input-filed w-input email" maxlength="256" name="email"
+                          data-name="Email" placeholder="Email" id="email" required>
                       </div>
-                      <div class="div-block-40"><label for="email-3" class="from-label">COMPANY SIZE</label>
+                      <!-- <div class="div-block-40"><label for="email-3" class="from-label">COMPANY SIZE</label>
                         <select id="field" name="field" data-name="Field"
                           class="input-filed select w-select select_input companySize">
                           <option value="">Select one...</option>
@@ -297,7 +301,7 @@ a,
                           <option value="Second">Second choice</option>
                           <option value="Third">Third choice</option>
                         </select>
-                      </div>
+                      </div> -->
                       <div class="div-block-40"><label for="email-2" class="from-label">PHONE NUMBER</label></div>
                       <div class="div-block-46">
                         <div data-delay="0" data-hover="false" class="dropdown w-dropdown">
@@ -313,7 +317,12 @@ a,
                         </div><input type="text" class="input-filed phone-number w-input phone" maxlength="256"
                           name="Mobile-number" data-name="Mobile number" placeholder="123.456.789" id="Mobile-number"
                           required="">
-                      </div><input type="submit" value="Let’s Chat!" data-wait="Please wait..."
+                      </div>
+                      <div class="div-block-40"><label for="email" class="from-label">COMPANY NAME</label>
+                        <input type="text" class="input-filed w-input companyName" maxlength="256" name="email"
+                          data-name="Email" placeholder="Company" id="email" required>
+                      </div>
+                      <input type="submit" value="Let’s Chat!" data-wait="Please wait..."
                         class="submit-button-2 w-button">
                     </form>
                     <div class="w-form-done">
@@ -368,10 +377,11 @@ a,
       $('.contact_form').on('submit', function (e) {
         e.preventDefault();
 
-        var firstName = $('.firstName').val()
-        var lastName = $('.lastName').val()
+        // var firstName = $('.firstName').val()
+        // var lastName = $('.lastName').val()
+        var name = $('.name').val()
         var phone = $('.phone').val()
-        var companySize = $('.companySize').val()
+        var email = $('.email').val()
         var companyName = $('.companyName').val()
 
         const options = {
@@ -379,12 +389,12 @@ a,
           url: 'https://stoplight.io/mocks/highlevel/integrations/39582863/contacts/',
           headers: { 'Content-Type': 'application/json', Authorization: 'hbcjchbd', Version: '2021-04-15' },
           data: {
-            firstName: 'name',
-            lastName: 'lastname',
+            name: name,
             locationId: '',
-            phone: '880980980989',
-            customFields: [{ id: 'companySize', field_value: companySize }],
-            companyName: 'Company 1'
+            phone: phone,
+            email: email,
+            customFields: [{ id: 'companySize', field_value: '' }],
+            companyName: companyName
           }
         };
 
